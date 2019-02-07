@@ -1,4 +1,4 @@
-import * as fluence from "js-fluence-client";
+import * as fluence from "fluence";
 
 // address to Fluence contract in Ethereum blockchain. Interaction with blockchain created by MetaMask or with local Ethereum node
 let contractAddress = "0x99d3a4e348eb218cfa3edc654f518e030629d30c";
