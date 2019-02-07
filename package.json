@@ -25,6 +25,6 @@
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
-    "js-fluence-client": "0.0.34"
+    "fluence": "0.1.4"
   }
 }
