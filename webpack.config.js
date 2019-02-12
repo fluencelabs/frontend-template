@@ -1,6 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     // use index.js as entrypoint
@@ -19,7 +19,9 @@ module.exports = {
     },
     plugins: [
         // create `index.html` with imported `bundle.js`
-        new HtmlWebpackPlugin(),
+        new CopyWebpackPlugin([{
+            from: './*.html'
+        }]),
         new webpack.HotModuleReplacementPlugin()
     ]
 };
