@@ -9,12 +9,13 @@ window.onload = function () {
 	const greetingLbl = document.querySelector('#greeting');
 
 	// address to Fluence contract in Ethereum blockchain. Interaction with blockchain created by MetaMask or with local Ethereum node
-	let contractAddress = "0x5faa7b8d290407460e0ec8585b2712acf27290f9";
+	let contractAddress = "0x074a79f29c613f4f7035cec582d0f7e4d3cda2e7";
 
-	let ethUrl = "http://207.154.240.52:8545"
+	// set ethUrl to `undefined` to use MetaMask instead of Ethereum node
+	let ethUrl = "http://207.154.240.52:8545/"
 
 	// application to interact with that stored in Fluence contract
-	let appId = "1";
+	let appId = "6";
 
 	// save fluence to global variable, so it can be accessed from Developer Console
 	window.fluence = fluence;
@@ -23,7 +24,6 @@ window.onload = function () {
 	fluence.connect(contractAddress, appId, ethUrl).then((s) => {
 		console.log("Session created");
 		window.session = s;
-		session = s;
 		helloBtn.disabled = false;
 	});
 
@@ -32,6 +32,10 @@ window.onload = function () {
 	window.getResultString = function (result) {
 		return result.result().then((r) => r.asString())
 	};
+
+	window.logResultAsString = function(result) {
+		return getResultString(result).then((r) => console.log(r))
+	}
 
 	// set callback on button click
 	helloBtn.addEventListener("click", send)

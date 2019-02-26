@@ -29,6 +29,6 @@
     "copy-webpack-plugin": "^4.6.0"
   },
   "dependencies": {
-    "fluence": "0.1.6"
+    "fluence": "0.1.10"
   }
 }
