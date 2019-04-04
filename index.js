@@ -9,13 +9,13 @@ window.onload = function () {
 	const greetingLbl = document.querySelector('#greeting');
 
 	// address to Fluence contract in Ethereum blockchain. Interaction with blockchain created by MetaMask or with local Ethereum node
-	let contractAddress = "0x074a79f29c613f4f7035cec582d0f7e4d3cda2e7";
+	let contractAddress = "0xeFF91455de6D4CF57C141bD8bF819E5f873c1A01";
 
 	// set ethUrl to `undefined` to use MetaMask instead of Ethereum node
-	let ethUrl = "http://207.154.240.52:8545/"
+	let ethUrl = "http://data.fluence.one:8545/"
 
 	// application to interact with that stored in Fluence contract
-	let appId = "6";
+	let appId = "5";
 
 	// save fluence to global variable, so it can be accessed from Developer Console
 	window.fluence = fluence;
@@ -43,7 +43,7 @@ window.onload = function () {
 	// send username as a transaction and display results in grettingLbl
 	function send() {
 		const username = usernameInput.value.trim();
-		let result = session.invoke(username);
+		let result = session.request(username);
 		getResultString(result).then(function (str) {
 			greetingLbl.innerHTML = str;
 		});
