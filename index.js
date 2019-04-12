@@ -8,7 +8,8 @@ window.onload = function () {
 	// locate output label
 	const greetingLbl = document.querySelector('#greeting');
 
-	// address to Fluence contract in Ethereum blockchain. Interaction with blockchain created by MetaMask or with local Ethereum node
+	// address to Fluence contract in Ethereum blockchain. 
+	// Interaction with blockchain created by MetaMask or with local/remote Ethereum node
 	let contractAddress = "0xeFF91455de6D4CF57C141bD8bF819E5f873c1A01";
 
 	// set ethUrl to `undefined` to use MetaMask instead of Ethereum node
