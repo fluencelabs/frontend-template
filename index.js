@@ -13,10 +13,10 @@ window.onload = function () {
 	let contractAddress = "0xeFF91455de6D4CF57C141bD8bF819E5f873c1A01";
 
 	// set ethUrl to `undefined` to use MetaMask instead of Ethereum node
-	let ethUrl = "http://rinkeby.fluence.one:8545/"
+	let ethUrl = "http://geth.fluence.one:8545/"
 
 	// application to interact with that stored in Fluence contract
-	let appId = "43";
+	let appId = "5";
 
 	// save fluence to global variable, so it can be accessed from Developer Console
 	window.fluence = fluence;
@@ -29,25 +29,14 @@ window.onload = function () {
 	});
 
 
-	// convert result to a string
-	window.getResultString = function (result) {
-		return result.result().then((r) => r.asString())
-	};
-
-	window.logResultAsString = function(result) {
-		return getResultString(result).then((r) => console.log(r))
-	}
-
 	// set callback on button click
 	helloBtn.addEventListener("click", send)
 	
 	// send username as a transaction and display results in grettingLbl
 	function send() {
 		const username = usernameInput.value.trim();
-		let result = session.request(username);
-		getResultString(result).then(function (str) {
-			greetingLbl.innerHTML = str;
+		session.request(username).then((result) => {
+			greetingLbl.innerHTML = result.asString();
 		});
 	}
-
 };
